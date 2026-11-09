@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Inggris</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            /* Jarak kiri dan kanan agar tidak terlalu menepi */
+            background-color: #123b5d;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            height: 70px;
+        }
+
+        .logo {
+  width: 75px;
+  /* Diperbesar dari 45px agar lebih proporsional dan jelas */
+  height: auto;
+  /* Tinggi menyesuaikan secara otomatis agar gambar tidak gepeng */
+  border-radius: 6px;
+}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            /* Jarak antar tombol navbar */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border-radius: 20px;
+            /* Bentuk kapsul */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: #0D7377;
+            /* Hijau toska saat disentuh kursor */
+            color: #fff;
+            box-shadow: 0 0 10px rgba(13, 115, 119, 0.5);
+            border-color: #0D7377;
+        }
+
+
+        /* MATERI */
+        .kartu-indo {
+            background: #ffffff;
+            color: #333;
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: 110px auto 50px auto;
+        }
+
+        .title-indo {
+            text-align: center;
+            color: #0b3d2e;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .isi-indo {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .isi-indo p {
+            margin-bottom: 18px;
+        }
+
+        /* Footer */
+
+/* Styling Footer yang Disempurnakan */
+.site-footer {
+  background: #0F1E19;
+  color: #eaf0e9;
+  padding: 60px 40px 20px;
+  margin-top: 50px;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* Memperjelas kalimat penjelas agar lebih terang dan mudah dibaca */
+.footer-brand p,
+.footer-column p {
+  color: #d1e0d3;
+  /* Diubah menjadi lebih terang/putih kehijauan lembut */
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.footer-photo-placeholder {
+  background: rgba(255, 255, 255, 0.08);
+  /* Background kotak sedikit lebih terang */
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Memperbaiki selector untuk tulisan "Lihat Jam" */
+.footer-photo-placeholder a {
+  color: #14FFEC;
+  /* Warna hijau toska terang agar sangat kontras dan jelas */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-photo-placeholder a:hover {
+  color: #ffffff;
+  /* Berubah jadi putih saat di-hover */
+  text-decoration: underline;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Memperbaiki Menu di dalam Footer */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a,
+.footer-contact a {
+  color: #d1e0d3;
+  /* Dibuat senada agar lebih terang */
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover,
+.footer-contact a:hover,
+.back-top:hover {
+  color: #14FFEC;
+  /* Warna hijau toska terang saat di-hover */
+}
+
+/* Bagian Bawah Footer */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #a3b8a5;
+  font-size: 12px;
+}
+
+.back-top {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Responsif untuk layar HP/Tablet */
+@media(max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html#home" class="navbar-btn">HOME</a></li>
+                <li><a href="index.html#about" class="navbar-btn">ABOUT</a></li>
+                <li><a href="index.html#analisis" class="navbar-btn">ANALISIS</a></li>
+                <li><a href="index.html#product" class="navbar-btn">PRODUCT</a></li>
+                <li><a href="index.html#myteam" class="navbar-btn">MYTEAM</a></li>
+                <li><a href="index.html#contact" class="navbar-btn">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="analisis" id="indo">
+        <div class="kartu-indo">
+            <div class="title-indo">
+                <h2>Bahasa Inggris</h2>
+            </div>
+            <div class="isi-indo">
+                <p>Nowadays, waste has become an important environmental issue because many unused materials are thrown
+                    away without being properly reused. However, some waste materials, such as cardboard, plastic bottle
+                    caps, and old clock components, can still be turned into useful products. One example of this
+                    innovation is ReClock Pro, a multifunctional wall clock made from recycled materials. This product
+                    is designed to combine creativity, technology, and environmental care in one useful creation.</p>
+                <p>The process of making ReClock Pro starts with collecting various reusable materials. First, used
+                    cardboard is selected, measured, and cut according to the desired design. The cardboard pieces are
+                    then joined together to form the main frame. After the frame is ready, the clock mechanism and clock
+                    hands are installed so that the product can display the correct time. Each part is arranged
+                    carefully to make the structure strong and functional.
+                </p>
+                <p>Furthermore, several additional features are added to improve the usefulness of the product. A
+                    calendar is included to help users remember important dates, while a note board can be used to write
+                    daily reminders. A phone holder is also provided to make it easier to place a mobile phone. In
+                    addition, a QR code is attached to connect users to a website containing useful information. The
+                    final stage involves decorating the product and checking every component to ensure that it works
+                    properly.</p>
+                <p>Through this process, ReClock Pro becomes more than just an ordinary wall clock. It is a creative
+                    product that combines several functions in one design. The use of recycled materials also represents
+                    the 3R principles: Reduce, Reuse, and Recycle. Reduce means limiting the use of new materials, Reuse
+                    means using items again, and Recycle means processing waste into new products.</p>
+                <p>In conclusion, ReClock Pro demonstrates that unused materials can be transformed into innovative and
+                    valuable products. Besides providing practical benefits, this product also encourages people to
+                    become more creative and responsible toward the environment. By applying the 3R principles, we can
+                    reduce waste and contribute to a cleaner and more sustainable future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#home">
+                    <img src="logo.png" alt="Logo"><span>ReClock Pro</span>
+                </a>
+                <p>Menyulap barang tak terpakai menjadi mahakarya bernilai tinggi. Kontribusi nyata untuk bumi yang
+                    lebih hijau.</p>
+                <div class="footer-photo-placeholder" aria-label="Tempat foto dokumentasi kelompok">
+                    <span><a href="jam.jpeg" target="_blank">Lihat Jam</a></span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html#home">HOME</a></li>
+                    <li><a href="index.html#about">ABOUT</a></li>
+                    <li><a href="index.html#analisis">ANALISIS</a></li>
+                    <li><a href="index.html#product">PRODUCT</a></li>
+                    <li><a href="index.html#myteam">MYTEAM</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>Jl. Darun Naim, Karangduren, Tengaran, Kabupaten Semarang, Jawa Tengah, Indonesia Kode Pos 50775</p>
+                <p><a href="mailto:ReClockPro01@email.com">Email: ReClockPro01@email.com</a></p>
+                <p><a href="tel:+6285710474102">+62 857-1047-4102</a></p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 ReClock Pro - Kelola Limbah, Selamatkan Bumi. All rights reserved.</p>
+            <a href="#top" class="back-top">Kembali ke atas ↑</a>
+        </div>
+    </footer>
+</body>
+
+</html>

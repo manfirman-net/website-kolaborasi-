@@ -1,0 +1,889 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #BBE1FA;
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  /* Membuat logo di kiri dan menu di kanan */
+  align-items: center;
+  padding: 0 40px;
+  /* Jarak kiri dan kanan agar tidak terlalu menepi */
+  background-color: #123b5d;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px;
+  /* Tinggi header disesuaikan */
+}
+
+.logo {
+  width: 75px;
+  /* Diperbesar dari 45px agar lebih proporsional dan jelas */
+  height: auto;
+  /* Tinggi menyesuaikan secara otomatis agar gambar tidak gepeng */
+  border-radius: 6px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  /* Jarak antar tombol navbar */
+  align-items: center;
+  margin: 0;
+  /* Menghilangkan margin bawaan */
+  padding: 0;
+}
+
+.navbar-btn {
+  display: inline-block;
+  margin-top: 0;
+  /* Menghapus margin-top 25px yang membuat tombol turun */
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+  /* Efek semi-transparan elegan */
+  color: #fff;
+  border-radius: 20px;
+  /* Membuat bentuk kapsul */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-btn:hover {
+  background-color: #0D7377;
+  /* Warna hijau toska senada */
+  color: #fff;
+  box-shadow: 0 0 10px rgba(13, 115, 119, 0.5);
+  border-color: #0D7377;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.hero {
+  /* Menambahkan overlay gelap semi-transparan di atas background gambar agar teks lebih kontras */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("backgound.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #ffffff;
+  /* Mengubah warna teks dasar menjadi putih bersih */
+}
+
+.hero-text {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff;
+  /* Pastikan semua bagian h1 berwarna putih */
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+  /* Efek bayangan agar teks menonjol */
+}
+
+/* Jika Anda ingin kata tertentu tetap berwarna hijau toska aksen */
+.hero h1 span {
+  color: #14FFEC;
+}
+
+.hero p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  color: #e0fbfc;
+  /* Putih kebiruan lembut */
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.analisis-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background-color: #0D7377;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.analisis-btn:hover {
+  background-color: #14FFEC;
+  color: #000;
+}
+
+/* ABOUT */
+.judul {
+  color: #000;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.bintang {
+  text-align: center;
+  color: green;
+  margin-bottom: 15px;
+}
+
+.sampah {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Membuat baris pertama pada setiap paragraf menjorok ke dalam */
+.sampah p {
+  text-indent: 40px;
+  margin-bottom: 15px;
+  /* Memberikan jarak antar 3 paragraf */
+}
+
+.card-about {
+  background: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 85%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about {
+  padding: 60px 20px;
+  margin-bottom: -70px;
+  text-align: center;
+}
+
+/* ANALISIS */
+.analisis {
+  margin: 30px;
+  background-color: #fff;
+  padding: 90px 30px 50px;
+  text-align: center;
+}
+
+.judul-analysis {
+  color: #0b3d2e;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 42px;
+  display: flex;
+  margin: 9px auto 0 auto;
+  text-align: center;
+  width: fit-content;
+  font-family: 'Poppins, sans-serif';
+}
+
+.sub-judul:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+.bingkai-kartu-analisis {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 60px 10px;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.kartu-analisis img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.kartu-analisis:hover img {
+  transform: scale(1.1);
+  filter: brightness(60%);
+}
+
+.kartu-analisis {
+  background: linear-gradient(180deg #86a6c4 0%, #cddcee);
+  border-radius: 20px;
+  width: 250px;
+  height: 220px;
+  text-align: center;
+  transition: transform 0.4s, box shadow 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.kartu-analisis:hover {
+  background: linear-gradient(180deg #6f8baa 0%, #9bb2cc);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.kartu-analisis .overlay h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.kartu-analisis .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 20px;
+}
+
+.kartu-analisis:hover .overlay {
+  opacity: 1;
+}
+
+/* Button */
+.btn p {
+  display: flex;
+  background-color: #dedede;
+  overflow: hidden;
+  transform: scale(1.5);
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  color: #dedede;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2F4F4F;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* Glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(40deg,
+      #B8FFB8, #8AFF8A, #5CFF5C, #2EFF2E,
+      #00FF00, #00D100, #00A300, #008000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 90px;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #008080;
+  font-weight: bold;
+}
+
+/* PRODUCT */
+.judul-product {
+  color: #0b3d2e;
+  font-size: 42px;
+  text-align: center;
+  padding: 60px 20px 30px 20px;
+  font-family: "Nunito Sans", sans-serif;
+  width: 100%;
+}
+
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  /* Membatasi lebar kontainer agar 3 card langsung turun ke bawah */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card-product {
+  width: 300px;
+  /* Ukuran lebar pas untuk formasi 3 kolom */
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-product img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.card-product h3 {
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.href {
+  text-align: center;
+  margin-top: auto;
+}
+
+.testc {
+  display: inline-block;
+  background-color: #0D7377;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.testc:hover {
+  background-color: #123b5d;
+  color: #fff;
+}
+
+/* MYTEAM */
+.judul-myteam {
+  color: #0b3d2e;
+  font-size: 42px;
+  font-family: 'Poppins, sans-serif';
+  text-align: center;
+  padding: 60px 20px 20px 20px;
+  /* Diperkecil padding bawahnya agar tidak terlalu jauh dengan grid */
+}
+
+.myteam {
+  background-color: white;
+  margin: 90px 0;
+  padding-bottom: 80px;
+  /* <--- INI KUNCI UTAMANYA: Memberikan jarak ruang kosong di bawah card */
+}
+
+.card-myteam {
+  padding: 2rem;
+  background-color: #eff9f2;
+  border-radius: 3rem;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-myteam:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-myteam img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 90px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px;
+}
+
+.social-icons a {
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.social-icons svg {
+  width: 25px;
+  height: 25px;
+}
+
+.card-myteam h3 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.card-myteam p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.myteam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 2fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 85%;
+  margin-inline: auto;
+}
+
+/* Styling Ikon Sosial Media Bersih (Tanpa Teks) */
+.social-icons-clean {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn.whatsapp:hover {
+  background-color: #25D366;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.social-btn.instagram:hover {
+  background-color: #E1306C;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   CSS KHUSUS HALAMAN KONTAK 
+   ========================================== */
+
+.contact-page-wrapper {
+  background-color: #f4f8fb;
+  /* Latar belakang terang yang bersih dan elegan */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Styling Judul Utama ("Kontak Kami") */
+.contact-page-wrapper .main-page-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0A2540;
+  /* Menyesuaikan warna tema navbar atas */
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+/* Pembungkus Utama (Container untuk kotak kiri & kanan) */
+.contact-page-wrapper .contact-container {
+  display: flex;
+  gap: 32px;
+  max-width: 950px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* --- KOTAK KIRI: INFORMASI KONTAK --- */
+.contact-page-wrapper .contact-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-page-wrapper .contact-info-section .section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b5d56;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.contact-page-wrapper .info-card {
+  background-color: #ffffff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(10, 37, 64, 0.04);
+  border: 1px solid rgba(11, 93, 86, 0.08);
+}
+
+.contact-page-wrapper .info-card .icon {
+  width: 42px;
+  height: 42px;
+  background-color: #e6f4f1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-page-wrapper .info-card .label {
+  font-size: 12px;
+  color: #718096;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.contact-page-wrapper .info-card p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Styling Tautan Kontak (WA & IG) */
+.contact-page-wrapper .contact-link {
+  color: #2d3748;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-page-wrapper .contact-link:hover {
+  color: #0b5d56;
+  text-decoration: underline;
+}
+
+/* --- KOTAK KANAN: KIRIM PESAN --- */
+.contact-page-wrapper .contact-form-section {
+  flex: 1.1;
+  background-color: #ffffff;
+  padding: 38px 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(10, 37, 64, 0.06);
+  text-align: center;
+  border: 1px solid rgba(11, 93, 86, 0.08);
+}
+
+.contact-page-wrapper .contact-form-section .section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b5d56;
+  margin-bottom: 10px;
+}
+
+.contact-page-wrapper .contact-form-section .subtitle {
+  font-size: 13.5px;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.contact-page-wrapper .form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.contact-page-wrapper .form-group input,
+.contact-page-wrapper .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background-color: #fafbfc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  color: #2d3748;
+}
+
+.contact-page-wrapper .form-group input:focus,
+.contact-page-wrapper .form-group textarea:focus {
+  border-color: #0b5d56;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(11, 93, 86, 0.1);
+}
+
+.contact-page-wrapper .form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-page-wrapper .btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #0b5d56;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.contact-page-wrapper .btn-submit:hover {
+  background-color: #084742;
+}
+
+.contact-page-wrapper .btn-submit:active {
+  transform: scale(0.98);
+}
+
+/* Responsif untuk Layar HP */
+@media (max-width: 768px) {
+  .contact-page-wrapper .contact-container {
+    flex-direction: column;
+  }
+}
+
+/* Footer */
+
+/* Styling Footer yang Disempurnakan */
+.site-footer {
+  background: #0F1E19;
+  color: #eaf0e9;
+  padding: 60px 40px 20px;
+  margin-top: 50px;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* Memperjelas kalimat penjelas agar lebih terang dan mudah dibaca */
+.footer-brand p,
+.footer-column p {
+  color: #d1e0d3;
+  /* Diubah menjadi lebih terang/putih kehijauan lembut */
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.footer-photo-placeholder {
+  background: rgba(255, 255, 255, 0.08);
+  /* Background kotak sedikit lebih terang */
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Memperbaiki selector untuk tulisan "Lihat Jam" */
+.footer-photo-placeholder a {
+  color: #14FFEC;
+  /* Warna hijau toska terang agar sangat kontras dan jelas */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-photo-placeholder a:hover {
+  color: #ffffff;
+  /* Berubah jadi putih saat di-hover */
+  text-decoration: underline;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Memperbaiki Menu di dalam Footer */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a,
+.footer-contact a {
+  color: #d1e0d3;
+  /* Dibuat senada agar lebih terang */
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover,
+.footer-contact a:hover,
+.back-top:hover {
+  color: #14FFEC;
+  /* Warna hijau toska terang saat di-hover */
+}
+
+/* Bagian Bawah Footer */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #a3b8a5;
+  font-size: 12px;
+}
+
+.back-top {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Responsif untuk layar HP/Tablet */
+@media(max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

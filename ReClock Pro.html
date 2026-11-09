@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            /* Jarak kiri dan kanan agar tidak terlalu menepi */
+            background-color: #123b5d;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            height: 70px;
+        }
+
+        .logo {
+            width: 75px;
+            /* Diperbesar dari 45px agar lebih proporsional dan jelas */
+            height: auto;
+            /* Tinggi menyesuaikan secara otomatis agar gambar tidak gepeng */
+            border-radius: 6px;
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            /* Jarak antar tombol navbar */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border-radius: 20px;
+            /* Bentuk kapsul */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: #0D7377;
+            /* Hijau toska saat disentuh kursor */
+            color: #fff;
+            box-shadow: 0 0 10px rgba(13, 115, 119, 0.5);
+            border-color: #0D7377;
+        }
+
+
+        /* CONTAINER PRODUK */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            max-width: 1000px;
+            margin: 110px auto 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0b3d2e;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .produk {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .produk img {
+            width: 250px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .deskripsi {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .deskripsi h3 {
+            margin: 0 0 10px 0;
+            color: #0D7377;
+        }
+
+        .deskripsi p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .kolom-kiri,
+        .kolom-kanan {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #f9fafb;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        h4 {
+            margin-top: 0;
+            color: #0b3d2e;
+            margin-bottom: 10px;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+
+        /* Styling Footer yang Disempurnakan */
+        .site-footer {
+            background: #0F1E19;
+            color: #eaf0e9;
+            padding: 60px 40px 20px;
+            margin-top: 50px;
+        }
+
+        .site-footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            background: #000;
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        /* Memperjelas kalimat penjelas agar lebih terang dan mudah dibaca */
+        .footer-brand p,
+        .footer-column p {
+            color: #d1e0d3;
+            /* Diubah menjadi lebih terang/putih kehijauan lembut */
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0 0 12px;
+        }
+
+        .footer-photo-placeholder {
+            background: rgba(255, 255, 255, 0.08);
+            /* Background kotak sedikit lebih terang */
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Memperbaiki selector untuk tulisan "Lihat Jam" */
+        .footer-photo-placeholder a {
+            color: #14FFEC;
+            /* Warna hijau toska terang agar sangat kontras dan jelas */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-photo-placeholder a:hover {
+            color: #ffffff;
+            /* Berubah jadi putih saat di-hover */
+            text-decoration: underline;
+        }
+
+        .footer-column h3 {
+            color: #ffffff;
+            font-size: 16px;
+            margin: 0 0 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Memperbaiki Menu di dalam Footer */
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a,
+        .footer-contact a {
+            color: #d1e0d3;
+            /* Dibuat senada agar lebih terang */
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover,
+        .footer-contact a:hover,
+        .back-top:hover {
+            color: #14FFEC;
+            /* Warna hijau toska terang saat di-hover */
+        }
+
+        /* Bagian Bawah Footer */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: #a3b8a5;
+            font-size: 12px;
+        }
+
+        .back-top {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Responsif untuk layar HP/Tablet */
+        @media(max-width: 768px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html#home" class="navbar-btn">HOME</a></li>
+                <li><a href="index.html#about" class="navbar-btn">ABOUT</a></li>
+                <li><a href="index.html#analisis" class="navbar-btn">ANALISIS</a></li>
+                <li><a href="index.html#product" class="navbar-btn">PRODUCT</a></li>
+                <li><a href="index.html#myteam" class="navbar-btn">MYTEAM</a></li>
+                <li><a href="index.html#contact" class="navbar-btn">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA PRODUK -->
+    <div class="container">
+        <h2>ReClock Pro</h2>
+        <div class="produk">
+            <img src="jam.jpeg" alt="Produk">
+            <div class="deskripsi">
+                <h3>ReClock Pro</h3>
+                <p>ReClock Pro merupakan produk inovatif berupa jam dinding multifungsi yang dibuat dengan memanfaatkan
+                    barang bekas. Produk ini dirancang untuk menunjukkan waktu sekaligus
+                    memiliki fungsi tambahan, seperti tempat catatan, tempat meletakkan HP, dan kalender.
+                    Proyek ini berfokus pada prinsip Recycle (daur ulang), yaitu mengolah barang bekas menjadi produk
+                    baru yang bermanfaat dan memiliki nilai jual.</p>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="kolom-kiri">
+                <div class="box teknik">
+                    <h4>Teknik Pembuatan</h4>
+                    <ol>
+                        <li>Menentukan konsep produk ReClock Pro, membagi tugas anggota kelompok, dan membuat sketsa
+                            desain tata letak jam, papan catatan, kalender, serta dudukan HP.</li>
+                        <li>Mengumpulkan barang bekas seperti kardus, kayu, mesin jam bekas, serta alat penunjang
+                            seperti lem tembak, gunting, dan cutter.</li>
+                        <li>Memotong kardus tebal dan kayu bekas sesuai ukuran sketsa sebagai papan utama jam dinding
+                            dan struktur penopang.</li>
+                        <li>Membuat dan menempelkan dudukan HP, wadah atau papan catatan pengingat, tempat kalender,
+                            serta melubangi bagian tengah untuk poros mesin jam.</li>
+                        <li>Mewarnai kerangka menggunakan cat atau spidol, memasang tutup botol bekas sebagai penanda
+                            angka, dan menempelkan QR Code informasi produk.</li>
+                        <li>Memasang mesin jam bekas pada bagian belakang papan kerangka, memasang jarum jam secara
+                            presisi, dan memasukkan baterai AA.</li>
+                        <li>Memastikan jam dapat berjalan dengan akurat, dudukan HP kuat menopang ponsel, serta papan
+                            catatan dan kalender berfungsi dengan baik.</li>
+                        <li>Merapikan bagian detail produk sehingga ReClock Pro siap dipresentasikan dan dipasarkan.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="kolom-kanan">
+                <div class="box bahan">
+                    <h4>Alat</h4>
+                    <ul>
+                        <li>Gunting</li>
+                        <li>Cutter </li>
+                        <li>Penggaris </li>
+                        <li>Pensil</li>
+                        <li>Lem Tembak</li>
+                        <li>Spidol</li>
+                        <li>Hp untuk membuat desain </li>
+                    </ul>
+                    <h4>Bahan</h4>
+                    <ul>
+                        <li>Kardus bekas sebagai kerangka utama</li>
+                        <li>Mesin jam bekas yang masih berfungsi </li>
+                        <li>Jarum jam</li>
+                        <li>Plastik bening sebagai pelindung bagian tertentu (opsional)</li>
+                        <li>Tutup botol bekas sebagai hiasan/angka jam</li>
+                        <li>Isi lem tembak / perekat</li>
+                        <li>Cat / spidol untuk memperindah tampilan </li>
+                        <li>Kertas bekas untuk membuat papan catatan</li>
+                        <li>Baterai AA</li>
+                        <li>Kertas berisi QR code yang mengarah ke halaman informasi produk</li>
+                    </ul>
+                </div>
+
+                <div class="box keuangan">
+                    <h4>Informasi Keuangan</h4>
+                    <p><strong>Modal:</strong> Rp 81.000</p>
+                    <p><strong>Laba:</strong> Rp 119.000</p>
+                    <p><strong>Harga Jual:</strong> Rp 200.000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container-footer footer-main">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#home">
+                    <img src="logo.png" alt="Logo"><span>ReClock Pro</span>
+                </a>
+                <p>Menyulap barang tak terpakai menjadi mahakarya bernilai tinggi. Kontribusi nyata untuk bumi yang
+                    lebih hijau.</p>
+                <div class="footer-photo-placeholder" aria-label="Tempat foto dokumentasi kelompok">
+                    <span><a href="jam.jpeg" target="_blank">Lihat Jam</a></span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html#home">HOME</a></li>
+                    <li><a href="index.html#about">ABOUT</a></li>
+                    <li><a href="index.html#analisis">ANALISIS</a></li>
+                    <li><a href="index.html#product">PRODUCT</a></li>
+                    <li><a href="index.html#myteam">MYTEAM</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>Jl. Darun Naim, Karangduren, Tengaran, Kabupaten Semarang, Jawa Tengah, Indonesia Kode Pos 50775</p>
+                <p><a href="mailto:ReClockPro01@email.com">Email: ReClockPro01@email.com</a></p>
+                <p><a href="tel:+6285710474102">+62 857-1047-4102</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ReClock Pro - Kelola Limbah, Selamatkan Bumi. All rights reserved.</p>
+            <a href="index.html#top" class="back-top">Kembali ke atas ↑</a>
+        </div>
+    </footer>
+</body>
+
+</html>

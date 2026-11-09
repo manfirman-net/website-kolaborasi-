@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Materi Kelompok</title>
+    <style>
+        /* Styling Umum / Dasar */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            /* Membuat logo di kiri dan menu di kanan */
+            align-items: center;
+            padding: 0 40px;
+            /* Jarak kiri dan kanan agar tidak terlalu menepi */
+            background-color: #123b5d;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            height: 70px;
+            /* Tinggi header disesuaikan */
+        }
+
+        .logo {
+  width: 75px;
+  /* Diperbesar dari 45px agar lebih proporsional dan jelas */
+  height: auto;
+  /* Tinggi menyesuaikan secara otomatis agar gambar tidak gepeng */
+  border-radius: 6px;
+}
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            /* Jarak antar tombol navbar */
+            align-items: center;
+            margin: 0;
+            /* Menghilangkan margin bawaan */
+            padding: 0;
+        }
+
+        .navbar-btn {
+            display: inline-block;
+            margin-top: 0;
+            /* Menghapus margin-top 25px yang membuat tombol turun */
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.08);
+            /* Efek semi-transparan elegan */
+            color: #fff;
+            border-radius: 20px;
+            /* Membuat bentuk kapsul */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-btn:hover {
+            background-color: #0D7377;
+            /* Warna hijau toska senada */
+            color: #fff;
+            box-shadow: 0 0 10px rgba(13, 115, 119, 0.5);
+            border-color: #0D7377;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        /* Styling Bagian Utama (Analisis Materi / Kelompok) */
+        .myteam {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 650px;
+            /* Batasi lebar agar pas untuk formasi 2 kolom */
+            margin: 0 auto;
+        }
+
+        .judul-myteam {
+            color: #0b3d2e;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        /* Mengatur grid agar card anggota kelompok tersusun 2 di atas dan 2 di bawah */
+        .myteam-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Styling Card Anggota Kelompok */
+        .card-myteam {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-myteam img.profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .card-myteam h3 {
+            margin: 10px 0 5px 0;
+            font-size: 18px;
+        }
+
+        /* ==========================================
+            STYLE UNTUK CARD MATERI DI DALAM KELOMPOK
+            ========================================== */
+        .kartu-analisis-kecil {
+            background: #000;
+            border-radius: 15px;
+            width: 100%;
+            height: 130px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .kartu-analisis-kecil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        .kartu-analisis-kecil:hover img {
+            transform: scale(1.1);
+            filter: brightness(40%);
+        }
+
+        .kartu-analisis-kecil .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 10px;
+        }
+
+        .kartu-analisis-kecil:hover .overlay {
+            opacity: 1;
+        }
+
+        .kartu-analisis-kecil .overlay h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .kartu-analisis-kecil .overlay p {
+            font-size: 10px;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        /* Desain Tombol Learn More */
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            /* Teks berwarna putih bersih */
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .btn::after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #1b382b;
+            /* Warna latar belakang tombol diselaraskan dengan tema */
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        .btn::before {
+            content: "";
+            background: linear-gradient(40deg,
+                    #B8FFB8, #8AFF8A, #5CFF5C, #2EFF2E,
+                    #00FF00, #00D100, #00A300, #008000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 90px;
+            z-index: -1;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: blur(8px);
+            animation: glowing 20s linear infinite;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn:hover {
+            color: #ffffff;
+        }
+
+        .btn:active::after {
+            background: #0b3d2e;
+        }
+
+       /* Footer */
+
+/* Styling Footer yang Disempurnakan */
+.site-footer {
+  background: #0F1E19;
+  color: #eaf0e9;
+  padding: 60px 40px 20px;
+  margin-top: 50px;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* Memperjelas kalimat penjelas agar lebih terang dan mudah dibaca */
+.footer-brand p,
+.footer-column p {
+  color: #d1e0d3;
+  /* Diubah menjadi lebih terang/putih kehijauan lembut */
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.footer-photo-placeholder {
+  background: rgba(255, 255, 255, 0.08);
+  /* Background kotak sedikit lebih terang */
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Memperbaiki selector untuk tulisan "Lihat Jam" */
+.footer-photo-placeholder a {
+  color: #14FFEC;
+  /* Warna hijau toska terang agar sangat kontras dan jelas */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-photo-placeholder a:hover {
+  color: #ffffff;
+  /* Berubah jadi putih saat di-hover */
+  text-decoration: underline;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Memperbaiki Menu di dalam Footer */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a,
+.footer-contact a {
+  color: #d1e0d3;
+  /* Dibuat senada agar lebih terang */
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover,
+.footer-contact a:hover,
+.back-top:hover {
+  color: #14FFEC;
+  /* Warna hijau toska terang saat di-hover */
+}
+
+/* Bagian Bawah Footer */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #a3b8a5;
+  font-size: 12px;
+}
+
+.back-top {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Responsif untuk layar HP/Tablet */
+@media(max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Bagian Navbar / Menu di atas -->
+    <header>
+        <img src="logo.png" alt="logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html#home" class="navbar-btn">HOME</a></li>
+                <li><a href="index.html#about" class="navbar-btn">ABOUT</a></li>
+                <li><a href="index.html#analisis" class="navbar-btn">ANALISIS</a></li>
+                <li><a href="index.html#product" class="navbar-btn">PRODUCT</a></li>
+                <li><a href="index.html#myteam" class="navbar-btn">MYTEAM</a></li>
+                <li><a href="index.html#contact" class="navbar-btn">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. Bagian Analisis Materi (Formasi 2 di Atas, 2 di Bawah) -->
+    <section class="myteam" id="analisis">
+        <h1 class="judul-myteam">ANALISIS MATERI</h1>
+
+        <div class="myteam-grid">
+
+            <!-- Card 1: Davin -->
+            <div class="card-myteam">
+                <img src="davin.jpeg" alt="Davin" class="profile-img">
+                <h3>DAVIN</h3>
+
+                <div class="kartu-analisis-kecil">
+                    <img src="english.jpeg" alt="bahasa inggris">
+                    <div class="overlay">
+                        <h3>Bahasa Inggris</h3>
+                        <p>Berikut Materi Dari Davin</p>
+                        <a href="1.inggris.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Firman -->
+            <div class="card-myteam">
+                <img src="firman.jpeg" alt="Firman" class="profile-img">
+                <h3>FIRMAN</h3>
+
+                <div class="kartu-analisis-kecil">
+                    <img src="english.jpeg" alt="bahasa inggris">
+                    <div class="overlay">
+                        <h3>Bahasa Inggris</h3>
+                        <p>Berikut Materi Dari Firman</p>
+                        <a href="2.inggris.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Maylinda -->
+            <div class="card-myteam">
+                <img src="tya.jpeg" alt="Tya" class="profile-img">
+                <h3>MAYLINDA</h3>
+
+                <div class="kartu-analisis-kecil">
+                    <img src="english.jpeg" alt="bahasa inggris">
+                    <div class="overlay">
+                        <h3>Bahasa Inggris</h3>
+                        <p>Berikut Materi Dari Maylinda</p>
+                        <a href="3.inggris.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Meika -->
+            <div class="card-myteam">
+                <img src="meika.jpeg" alt="Meika" class="profile-img">
+                <h3>MEIKA</h3>
+
+                <div class="kartu-analisis-kecil">
+                    <img src="english.jpeg" alt="bahasa inggris">
+                    <div class="overlay">
+                        <h3>Bahasa Inggris</h3>
+                        <p>Berikut Materi Dari Meika</p>
+                        <a href="4.inggris.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#home">
+                    <img src="logo.png" alt="Logo"><span>ReClock Pro</span>
+                </a>
+                <p>Menyulap barang tak terpakai menjadi mahakarya bernilai tinggi. Kontribusi nyata untuk bumi yang
+                    lebih hijau.</p>
+                <div class="footer-photo-placeholder" aria-label="Tempat foto dokumentasi kelompok">
+                    <span><a href="jam.jpeg" target="_blank">Lihat Jam</a></span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html#home">HOME</a></li>
+                    <li><a href="index.html#about">ABOUT</a></li>
+                    <li><a href="index.html#analisis">ANALISIS</a></li>
+                    <li><a href="index.html#product">PRODUCT</a></li>
+                    <li><a href="index.html#myteam">MYTEAM</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>Jl. Darun Naim, Karangduren, Tengaran, Kabupaten Semarang, Jawa Tengah, Indonesia Kode Pos 50775</p>
+                <p>
+                    <a href="mailto:ReClockPro01@email.com">Email: ReClockPro01@email.com</a>
+                </p>
+                <p>
+                    <a href="tel:+6285710474102">+62 857-1047-4102</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 ReClock Pro - Kelola Limbah, Selamatkan Bumi. All rights reserved.</p>
+            <a href="#top" class="back-top">Kembali ke atas ↑</a>
+        </div>
+    </footer>
+</body>
+
+</html>

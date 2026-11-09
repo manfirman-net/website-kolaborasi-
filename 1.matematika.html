@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematika</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            /* Jarak kiri dan kanan agar tidak terlalu menepi */
+            background-color: #123b5d;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            height: 70px;
+        }
+
+        .logo {
+  width: 75px;
+  /* Diperbesar dari 45px agar lebih proporsional dan jelas */
+  height: auto;
+  /* Tinggi menyesuaikan secara otomatis agar gambar tidak gepeng */
+  border-radius: 6px;
+}
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            /* Jarak antar tombol navbar */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border-radius: 20px;
+            /* Bentuk kapsul */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: #0D7377;
+            /* Hijau toska saat disentuh kursor */
+            color: #fff;
+            box-shadow: 0 0 10px rgba(13, 115, 119, 0.5);
+            border-color: #0D7377;
+        }
+
+
+        /* MATERI */
+        .kartu-indo {
+            background: #ffffff;
+            color: #333;
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: 110px auto 50px auto;
+        }
+
+        .title-indo {
+            text-align: center;
+            color: #0b3d2e;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .kartu-indo img {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+        }
+
+        .isi-indo {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .isi-indo p {
+            margin-bottom: 10px;
+        }
+
+        hr {
+            margin: 15px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+       /* Footer */
+
+/* Styling Footer yang Disempurnakan */
+.site-footer {
+  background: #0F1E19;
+  color: #eaf0e9;
+  padding: 60px 40px 20px;
+  margin-top: 50px;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* Memperjelas kalimat penjelas agar lebih terang dan mudah dibaca */
+.footer-brand p,
+.footer-column p {
+  color: #d1e0d3;
+  /* Diubah menjadi lebih terang/putih kehijauan lembut */
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.footer-photo-placeholder {
+  background: rgba(255, 255, 255, 0.08);
+  /* Background kotak sedikit lebih terang */
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Memperbaiki selector untuk tulisan "Lihat Jam" */
+.footer-photo-placeholder a {
+  color: #14FFEC;
+  /* Warna hijau toska terang agar sangat kontras dan jelas */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-photo-placeholder a:hover {
+  color: #ffffff;
+  /* Berubah jadi putih saat di-hover */
+  text-decoration: underline;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Memperbaiki Menu di dalam Footer */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a,
+.footer-contact a {
+  color: #d1e0d3;
+  /* Dibuat senada agar lebih terang */
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover,
+.footer-contact a:hover,
+.back-top:hover {
+  color: #14FFEC;
+  /* Warna hijau toska terang saat di-hover */
+}
+
+/* Bagian Bawah Footer */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #a3b8a5;
+  font-size: 12px;
+}
+
+.back-top {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Responsif untuk layar HP/Tablet */
+@media(max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html#home" class="navbar-btn">HOME</a></li>
+                <li><a href="index.html#about" class="navbar-btn">ABOUT</a></li>
+                <li><a href="index.html#analisis" class="navbar-btn">ANALISIS</a></li>
+                <li><a href="index.html#product" class="navbar-btn">PRODUCT</a></li>
+                <li><a href="index.html#myteam" class="navbar-btn">MYTEAM</a></li>
+                <li><a href="index.html#contact" class="navbar-btn">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="analisis" id="indo">
+        <div class="kartu-indo">
+            <div class="title-indo">
+                <h2>Matematika</h2>
+            </div>
+
+            <img src="jam multifungsi.jpeg" alt="poster mtk">
+            <hr>
+
+            <div class="isi-indo">
+                <p><strong>Model Variabel:</strong></p>
+                <p>X = Harga satuan pot dari keyboard bekas</p>
+                <p>Y = Harga satuan dari Reglow Tree</p>
+                <hr>
+                <p><strong>Model Matematika:</strong></p>
+                <p>6x + 4y = 140.000</p>
+                <p>4x + 6y = 160.000</p>
+                <hr>
+                <p><strong>Metode Eliminasi</strong></p>
+                <p>6x + 4y = 140.000 | ×3</p>
+                <p>4x + 6y = 160.000 | ×2</p>
+                <p>18x + 12y = 420.000</p>
+                <p>8x + 12y = 320.000</p>
+                <p>___________________ -</p>
+                <p>10x = 100.000</p>
+                <p>x = 10.000</p>
+                <hr>
+                <p><strong>Metode Substitusi</strong></p>
+                <p>6x + 4y = 140.000</p>
+                <p>6(10.000) + 4y = 140.000</p>
+                <p>60.000 + 4y = 140.000</p>
+                <p>4y = 140.000 - 60.000</p>
+                <p>4y = 80.000</p>
+                <p>y = 20.000</p>
+                <hr>
+                <p><strong>Kesimpulan:</strong> Jadi, harga satuan pot dari keyboard bekas adalah Rp10.000 dan harga satuan dari
+                    Reglo TRee adalah Rp20.000.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#home">
+                    <img src="logo.png" alt="Logo"><span>ReClock Pro</span>
+                </a>
+                <p>Menyulap barang tak terpakai menjadi mahakarya bernilai tinggi. Kontribusi nyata untuk bumi yang
+                    lebih hijau.</p>
+                <div class="footer-photo-placeholder" aria-label="Tempat foto dokumentasi kelompok">
+                    <span><a href="jam.jpeg" target="_blank">Lihat Jam</a></span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html#home">HOME</a></li>
+                    <li><a href="index.html#about">ABOUT</a></li>
+                    <li><a href="index.html#analisis">ANALISIS</a></li>
+                    <li><a href="index.html#product">PRODUCT</a></li>
+                    <li><a href="index.html#myteam">MYTEAM</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>Jl. Darun Naim, Karangduren, Tengaran, Kabupaten Semarang, Jawa Tengah, Indonesia Kode Pos 50775</p>
+                <p><a href="mailto:ReClockPro01@email.com">Email: ReClockPro01@email.com</a></p>
+                <p><a href="tel:+6285710474102">+62 857-1047-4102</a></p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 ReClock Pro - Kelola Limbah, Selamatkan Bumi. All rights reserved.</p>
+            <a href="#top" class="back-top">Kembali ke atas ↑</a>
+        </div>
+    </footer>
+</body>
+
+</html>
